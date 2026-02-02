@@ -1,12 +1,12 @@
 "use client";
 
-import FormComponent from "@/app/components/formComponent";
+import FormComponent from "@/components/formComponent";
+import { redirect } from "next/navigation";
 
 export default function AddProduct() {
 
-  const handleSubmit = async (e, data) => {
-    e.preventDefault();
-    if (!data.title || !data.description || !data.price) {
+  const handleSubmit = async ({title, description, price}) => {
+    if (!title || !description || !price) {
       alert("Please fill in all fields.");
       return;
     }
@@ -15,11 +15,11 @@ export default function AddProduct() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title: data.title, description: data.description, price: data.price }),
+      body: JSON.stringify({ title, description, price }),
     });
     await resp.json();
     alert("Product added successfully!");
-    window.location.href = "/products";
+    redirect('/products');
   };
 
   return (

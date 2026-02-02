@@ -24,17 +24,17 @@ const seedProducts = async () => {
 seedProducts();
 
 export async function getProducts() {
-    return await prisma.product.findMany();
+    return prisma.product.findMany();
 }
 
 export async function getProductById(id) {
-    return await prisma.product.findUnique({
+    return prisma.product.findUnique({
         where: { id: Number(id) }
     });
 }
 
 export async function addProduct({title, price, description}) {
-    return await prisma.product.create({
+    return prisma.product.create({
         data: {
             title,
             price: parseInt(price, 10),
@@ -44,7 +44,7 @@ export async function addProduct({title, price, description}) {
 }
 
 export async function updateProduct({id, title, price, description}) {
-    return await prisma.product.update({
+    return prisma.product.update({
         where: { id: Number(id) },
         data: {
             title,
@@ -55,7 +55,7 @@ export async function updateProduct({id, title, price, description}) {
 }
 
 export async function deleteProductById(id) {
-    return await prisma.product.delete({
+    return prisma.product.delete({
         where: { id: Number(id) }
     });
 }

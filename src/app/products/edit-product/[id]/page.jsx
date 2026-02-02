@@ -1,7 +1,7 @@
 "use client";
 
-import FormComponent from "@/app/components/formComponent";
-import { useParams } from "next/navigation";
+import FormComponent from "@/components/formComponent";
+import { redirect, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function EditProduct() {
@@ -33,7 +33,7 @@ export default function EditProduct() {
     });
     await resp.json();
     alert("Product updated successfully!");
-    window.location.href = "/products";
+    redirect('/products');
   };
 
   return (
