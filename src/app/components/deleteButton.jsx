@@ -18,14 +18,7 @@ export default function DeleteButton({ productId }) {
   return (
     <button
       onClick={handleDeleteClick}
-      style={{
-        padding: "8px",
-        backgroundColor: "#dc3545",
-        color: "#fff",
-        border: "none",
-        borderRadius: "5px",
-        cursor: "pointer",
-      }}
+      className="p-2 text-white bg-red-600 hover:bg-red-700 border-none rounded cursor-pointer"
     >
       Delete
     </button>
